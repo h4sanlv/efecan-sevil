@@ -75,13 +75,49 @@ function animateBG() {
 }
 animateBG();
 
+// --- Otomatik müzik çalma ---
+const backgroundMusic = document.getElementById('backgroundMusic');
+
+// Müziği çalmaya çalışan fonksiyon
+function startMusic() {
+  if (backgroundMusic && backgroundMusic.paused) {
+    const playPromise = backgroundMusic.play();
+    if (playPromise !== undefined) {
+      playPromise.catch(error => {
+        console.log('Müzik çalma hatası:', error);
+        // Hata durumunda tekrar dene
+        setTimeout(startMusic, 1000);
+      });
+    }
+  }
+}
+
+// Sayfa yüklendiğinde müziği başlat
+document.addEventListener('DOMContentLoaded', function() {
+  startMusic();
+  
+  // Mobil cihazlarda daha agresif müzik başlatma
+  if (window.innerWidth <= 768) {
+    // Her tıklama olayında müziği başlatmaya çalış
+    document.addEventListener('click', startMusic);
+    document.addEventListener('touchstart', startMusic);
+    document.addEventListener('touchend', startMusic);
+    
+    // Sayfa görünür olduğunda müziği başlat
+    document.addEventListener('visibilitychange', function() {
+      if (!document.hidden) {
+        startMusic();
+      }
+    });
+  }
+});
+
 // --- Cam küre ve zarf açılış animasyonu, typewriter efektli mektup ---
 let step = 0;
 const flap = document.querySelector('.envelope-flap');
 const letter = document.getElementById('envelopeLetter');
 const envelope = document.getElementById('envelope3D');
 const orb = document.getElementById('glassOrb');
-const music = document.getElementById('music');
 const tip = document.getElementById('clickTip');
 const typewriter = document.getElementById('typewriter');
 const audioFlap = document.getElementById('audio-flap');
@@ -173,21 +209,30 @@ function loadGalleryImages() {
   gallery.appendChild(row2);
 }
 
-// --- GÜNCELLEME: Sayfa açılır açılmaz galeri ve resimleri göster ---
-// Bu kısmı kaldırıyorum, orijinal akışa dönüyoruz.
-
 envelope.addEventListener('click', function() {
   step++;
   if (step === 1) {
     flap.classList.add('open');
     tip.textContent = 'Bir daha tıkla...';
-    audioFlap && audioFlap.play();
+    // Mobil uyumlu ses efekti
+    if (audioFlap) {
+      const playPromise = audioFlap.play();
+      if (playPromise !== undefined) {
+        playPromise.catch(error => console.log('Ses efekti hatası:', error));
+      }
+    }
   } else if (step === 2) {
     letter.classList.add('visible');
     tip.textContent = 'Son kez tıkla...';
     setTimeout(() => {
       typewriter.textContent = mektupMetni.replace(/\n/g, '\n');
-      audioLetter && audioLetter.play();
+      // Mobil uyumlu ses efekti
+      if (audioLetter) {
+        const playPromise = audioLetter.play();
+        if (playPromise !== undefined) {
+          playPromise.catch(error => console.log('Ses efekti hatası:', error));
+        }
+      }
     }, 600);
   } else if (step === 3) {
     letter.classList.remove('visible');
