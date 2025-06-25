@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Efsane Aşk Mektubu - Efe & Sevil</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap" rel="stylesheet"> 
+</head>
+<body>
+  <canvas id="bgCanvas"></canvas>
+  <div class="center-container">
+    <div class="glass-orb" id="glassOrb">
+      <div class="envelope-3d big" id="envelope3D">
+        <div class="envelope-flap"></div>
+        <div class="envelope-front"></div>
+        <div class="envelope-letter" id="envelopeLetter">
+          <div class="typewriter" id="typewriter">Efe & Sevil 
+
+Sevgili Sevil,
+
+Seninle geçen her an, yıldızlar kadar parlak ve kalbimde sonsuz bir iz bırakıyor.
+Senin gülüşünle aydınlanan dünyamda, her gün sana yeniden aşık oluyorum.
+Hayatın tüm renkleri, seninle daha güzel, daha anlamlı.
+
+Birlikte kurduğumuz hayaller, paylaştığımız anılar ve geleceğe dair umutlarımız,
+kalbimin en değerli köşesinde saklı.
+
+Seni her şeyden çok seviyorum.
+
+Sonsuz sevgimle,
+Efe</div>
+        </div>
+      </div>
+      <div class="click-tip" id="clickTip">Tıkla ve mektubu aç...</div>
+    </div>
+  </div>
+  <div class="music" id="music">
+    <iframe width="0" height="0" src="https://www.youtube.com/embed/8UVNT4wvIGY?autoplay=1&loop=1&playlist=8UVNT4wvIGY" title="Aşk şarkısı" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+    <p>Arka planda: Gotye - Somebody That I Used To Know</p>
+  </div>
+  <!-- Ses efektleri -->
+  <audio id="audio-flap" src="sounds/flap.mp3"></audio>
+  <audio id="audio-letter" src="sounds/letter.mp3"></audio>
+  <audio id="audio-gallery" src="sounds/gallery.mp3"></audio>
+  <div class="gallery-header" id="galleryHeader" style="display:none;">
+    <h2>Fotoğraf Galerisi</h2>
+    <p>Efe & Sevil'in en güzel anları</p>
+  </div>
+  <div class="gallery-3d" id="gallery3D" style="display:none;"></div>
+  <script src="script.js"></script>
+</body>
+</html> 
