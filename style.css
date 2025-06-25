@@ -265,20 +265,11 @@ body {
 .gallery-card.visible {
   filter: brightness(0.92) blur(0px);
 }
-.music {
-  text-align: center;
-  margin-top: 30px;
-  color: #fff;
-  font-size: 1em;
-  opacity: 0;
-  transition: opacity 1.2s;
-  pointer-events: none;
-  z-index: 4;
+
+#backgroundMusic {
+  display: none;
 }
-.music.visible {
-  opacity: 0.8;
-  pointer-events: auto;
-}
+
 #centerHeart {
   filter: drop-shadow(0 0 32px #ee9ca7cc) drop-shadow(0 0 16px #fff0f5cc);
   animation: heartPop 1.2s cubic-bezier(.77,0,.18,1);
