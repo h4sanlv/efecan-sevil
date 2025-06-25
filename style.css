@@ -312,12 +312,10 @@ body {
   margin-bottom: 18px;
 }
 @media (max-width: 600px) {
-  .glass-orb { width: 95vw; height: 95vw; min-width: 160px; min-height: 160px; }
-  .envelope-3d.big { width: 92vw; height: 58vw; min-width: 160px; min-height: 100px; }
+  .glass-orb { width: 90vw; height: 90vw; min-width: 160px; min-height: 160px; }
+  .envelope-3d.big { width: 88vw; height: 55vw; min-width: 160px; min-height: 100px; }
   .click-tip { 
-    bottom: -30px; 
-    font-size: 0.9em; 
-    padding: 6px 16px; 
+    display: none; 
   }
   .envelope-letter {
     top: 10px; 
