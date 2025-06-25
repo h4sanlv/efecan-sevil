@@ -7,7 +7,8 @@
   <link rel="stylesheet" href="style.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap" rel="stylesheet"> 
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+  <script src="https://www.youtube.com/iframe_api"></script>
 </head>
 <body>
   <canvas id="bgCanvas"></canvas>
@@ -37,10 +38,14 @@ Efe</div>
       <div class="click-tip" id="clickTip">Tıkla ve mektubu aç...</div>
     </div>
   </div>
-  <div class="music" id="music">
-    <iframe width="0" height="0" src="https://www.youtube.com/embed/8UVNT4wvIGY?autoplay=1&loop=1&playlist=8UVNT4wvIGY" title="Aşk şarkısı" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-    <p>Arka planda: Gotye - Somebody That I Used To Know</p>
-  </div>
+  
+  <!-- Otomatik çalan arka plan müziği -->
+  <audio id="backgroundMusic" autoplay loop preload="auto">
+    <!-- Rem Derici - Kalbimin Tek Sahibine -->
+    <source src="sounds/kalbimin-tek-sahibine.mp3" type="audio/mpeg">
+    Tarayıcınız ses dosyalarını desteklemiyor.
+  </audio>
+  
   <!-- Ses efektleri -->
   <audio id="audio-flap" src="sounds/flap.mp3"></audio>
   <audio id="audio-letter" src="sounds/letter.mp3"></audio>
